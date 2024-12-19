@@ -8,6 +8,7 @@ export function Navbar(){
         <Link to={"/products"}>Product</Link>
         <input className="inputsearch" type="text" placeholder="Search " />
         <Link to={"/login"}>Login</Link>
+        <Link to={"/about"}>About Us</Link>
 
 
 
