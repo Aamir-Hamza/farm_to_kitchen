@@ -8,6 +8,7 @@ import{Navbar} from "./Components/Navbar"
 import {Home} from "./Components/Home"
 import Login from './Components/Login'
 import Product from './Components/Product'
+import About from './Components/About'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -19,6 +20,7 @@ function App() {
       <Route path="/" element={<Home />} />
       <Route path="/products" element={<Product />} />
       <Route path="/login" element={<Login />}/>
+      <Route path="/about" element={<About />}/>
     </Routes>
      {/* <User_Registration/> */}
     </>
