@@ -8,16 +8,21 @@ import{Navbar} from "./Components/Navbar"
 import {Home} from "./Components/Home"
 import Login from './Components/Login'
 import Product from './Components/Product'
+import Addproducts from './Components/Addproducts'
+import Productlist from './Components/Productlist'
 
 function App() {
-  const [count, setCount] = useState(0)
+  
 
   return (
     <>
+    
     <Navbar/>
+    
     <Routes>
       <Route path="/" element={<Home />} />
-      <Route path="/products" element={<Product />} />
+      <Route path="/add" element={<Addproducts/>}/>
+      <Route path="/products" element={<Productlist/>} />
       <Route path="/login" element={<Login />}/>
     </Routes>
      {/* <User_Registration/> */}
