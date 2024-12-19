@@ -8,8 +8,11 @@ import{Navbar} from "./Components/Navbar"
 import {Home} from "./Components/Home"
 import Login from './Components/Login'
 import Product from './Components/Product'
+
 import Addproducts from './Components/Addproducts'
 import Productlist from './Components/Productlist'
+import About from './Components/About'
+
 
 function App() {
   
@@ -24,6 +27,7 @@ function App() {
       <Route path="/add" element={<Addproducts/>}/>
       <Route path="/products" element={<Productlist/>} />
       <Route path="/login" element={<Login />}/>
+      <Route path="/about" element={<About />}/>
     </Routes>
      {/* <User_Registration/> */}
     </>

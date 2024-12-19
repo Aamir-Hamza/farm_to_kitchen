@@ -11,6 +11,7 @@ export function Navbar(){
         <input className="inputsearch" type="text" placeholder="Search " />
         <img src="https://img.icons8.com/?size=100&id=72704&format=png&color=000000" alt="" />
         <Link to={"/login"}>Login</Link>
+        <Link to={"/about"}>About Us</Link>
 
 
 
