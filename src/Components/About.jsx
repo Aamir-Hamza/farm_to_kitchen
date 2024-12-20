@@ -6,13 +6,15 @@ const About = () => {
         <div className="about-container">
             <h1>About Us</h1>
             <p>
-                Welcome to our platform! This website is designed to serve as a bridge between farmers and customers, providing a seamless e-commerce experience for both parties.
+                Welcome to our platform! This website is designed to serve as a bridge between farmers and customers,
+                providing a seamless e-commerce experience for both parties.
             </p>
 
             <section className="about-section">
                 <h2>For Farmers</h2>
                 <p>
-                    Farmers can use this platform to showcase and sell their products directly to customers. They can:
+                    Farmers can use this platform to showcase and sell their products directly to customers.
+                    They can:
                 </p>
                 <ul>
                     <li>Add products with details like name, price, and description.</li>
@@ -24,7 +26,8 @@ const About = () => {
             <section className="about-section">
                 <h2>For Customers</h2>
                 <p>
-                    Customers can explore a variety of products offered by farmers and enjoy a smooth shopping experience. They can:
+                    Customers can explore a variety of products offered by farmers and enjoy a smooth shopping experience. 
+                    They can:
                 </p>
                 <ul>
                     <li>Browse products and view detailed information.</li>
@@ -43,7 +46,8 @@ const About = () => {
             </section>
 
             <p>
-                Our mission is to empower farmers and provide customers with fresh, quality products directly from the source. Join us in building a sustainable and efficient marketplace!
+                Our mission is to empower farmers and provide customers with fresh, quality products directly from the 
+                source. Join us in building a sustainable and efficient marketplace!
             </p>
         </div>
     );
