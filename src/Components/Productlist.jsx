@@ -1,5 +1,7 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
+import handleupdate from './/Updateproduct'
+import './Productlist.css'
 
 const URL = "https://farm-to-kitchen-ab130-default-rtdb.firebaseio.com/products.json";
 
@@ -8,6 +10,8 @@ const Productlist = () => {
     const [filteredData, setFilteredData] = useState([]);
     const [searchTerm, setSearchTerm] = useState('');
     const [sortOption, setSortOption] = useState('');
+    const [editingProductId, setEditingProductId] = useState(null);
+
 
     async function Getlist() {
         let res = await axios.get(URL);
@@ -66,6 +70,12 @@ const Productlist = () => {
         }
     };
 
+    async function handleremove(id){
+        await axios.delete(`https://farm-to-kitchen-ab130-default-rtdb.firebaseio.com/products/${id}.json`)
+        Getlist()
+        alert("Product Removed")
+    }   
+
     return (
         <div className='mainpcard'>
             <div className='search-bar'>
@@ -92,7 +102,7 @@ const Productlist = () => {
                     <option value='all'>All Categories</option>
                     <option value='fruits'>Fruits</option>
                     <option value='vegetables'>Vegetables</option>
-                    <option value='dairy'>Dairy</option>
+                    <option value='Dairy'>Dairy</option>
                 </select>
             </div>
 
@@ -102,12 +112,14 @@ const Productlist = () => {
                     <div className='middesc'>
                         <h1>{product.name}</h1>
                         <h3>{product.desc}</h3>
+                        <h3>{product.category}</h3>
                         <h2>RS: {product.price}</h2>
                     </div>
 
                     <div className='upbutton'>
-                        <button>Update</button>
-                        <button>Remove</button>
+                     
+                        <button onClick={()=>handleupdate(product.id)}>Update</button>
+                        <button onClick={()=>handleremove(product.id)}>Remove</button>
                     </div>
                 </div>
             ))}

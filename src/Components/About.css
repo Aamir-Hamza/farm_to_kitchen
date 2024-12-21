@@ -1,57 +1,89 @@
+
 .about-container {
-    max-width: 800px;
-    margin: 0 auto;
+    font-family: 'Arial', sans-serif;
+    color: #2d3436;
     padding: 20px;
-    font-family: Arial, sans-serif;
-    color: #333;
-    line-height: 1.6;
-    background-color: #f9f9f9;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: auto;
+    max-width: auto;
+    background: linear-gradient(145deg, #e8f5e9, #ffffff);
+    border-radius: 10px;
+    
 }
 
 .about-container h1 {
-    font-size: 2.5em;
-    margin-bottom: 20px;
-    color: #2c3e50;
     text-align: center;
-}
-
-.about-container p {
+    color: #388e3c;
     margin-bottom: 20px;
+    font-size: 2.5rem;
 }
 
-.about-section {
-    margin-bottom: 30px;
+.about-container h2 {
+    color: #2e7d32;
+    margin-top: 20px;
+    font-size: 1.8rem;
+}
+.about-container p {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin: 10px 0;
 }
 
-.about-section h2 {
-    font-size: 1.8em;
-    margin-bottom: 10px;
-    color: #34495e;
-}
-
-.about-section ul {
-    padding-left: 20px;
-    list-style-type: disc;
-}
-
-.about-section ul li {
-    margin-bottom: 10px;
+.about-container ul {
+    list-style: none;
+    padding: 0;
+    margin: 15px 0;
 }
 
 .about-container ul li {
-    font-size: 1em;
-    color: #555;
+    position: relative;
+    padding-left: 30px;
+    margin-bottom: 10px;
+    font-size: 1rem;
+    color: #2d3436;
 }
 
-.about-container ul li::marker {
-    color: #3498db;
+.about-container ul li:before {
+    content: '\2713'; 
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: #66bb6a;
+    font-size: 1.2rem;
 }
 
-.about-container p:last-of-type {
-    font-size: 1.2em;
-    font-weight: bold;
+.about-section {
+    padding: 15px;
+    margin-bottom: 20px;
+    background-color: #f1f8e9;
+    border: 1px solid #c5e1a5;
+    border-radius: 8px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.about-container p:last-child {
     text-align: center;
+    font-weight: bold;
+    color: #388e3c;
     margin-top: 20px;
+    font-size: 1.2rem;
+}
+
+
+@media (max-width: 768px) {
+    .about-container {
+        padding: 15px;
+    }
+
+    .about-container h1 {
+        font-size: 2rem;
+    }
+
+    .about-container h2 {
+        font-size: 1.5rem;
+    }
+
+    .about-container p,
+    .about-container ul li {
+        font-size: 0.9rem;
+    }
 }
