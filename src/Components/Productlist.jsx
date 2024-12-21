@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
+import "../App.css"
 
 const URL = "https://farm-to-kitchen-ab130-default-rtdb.firebaseio.com/products.json";
 
