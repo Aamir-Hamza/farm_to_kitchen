@@ -1,6 +1,4 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+
 import './App.css'
 import {Routes,Route} from "react-router-dom"
 import { User_Registration } from './Components/User_Registration'
@@ -12,7 +10,7 @@ import Product from './Components/Product'
 import Addproducts from './Components/Addproducts'
 import Productlist from './Components/Productlist'
 import About from './Components/About'
-
+import Footer from './Components/Footer'
 
 function App() {
   
@@ -30,6 +28,7 @@ function App() {
       <Route path="/about" element={<About />}/>
     </Routes>
      {/* <User_Registration/> */}
+     <Footer/>
     </>
   )
 }
