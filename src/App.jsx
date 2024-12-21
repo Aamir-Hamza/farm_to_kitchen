@@ -7,13 +7,7 @@ import { Login } from "./Components/Login";
 import { User_Registration } from "./Components/User_Registration";
 import  Product  from "./Components/Product";
 
-import Addproducts from './Components/Addproducts'
-import Productlist from './Components/Productlist'
-import About from './Components/About'
-
-
 function App() {
-
   const [user, setUser] = useState(null); // Store logged-in user info
   const [registeredUsers, setRegisteredUsers] = useState([]); // Store registered users
 
