@@ -1,118 +1,143 @@
-/* Global Styles */
-body {
-    font-family: 'Arial', sans-serif;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
-  /* Navbar Container */
-  .navbar {
+/* Navbar.css */
+
+/* General Navbar Styles */
+*{
+    margin: 0px;
+    padding: 0px;
+}
+.navbar {
+    background-color: #1a202c; /* Dark background for navbar */
+    padding: 0.75rem 1rem;
+    color: white;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 2rem;
-    background-color: #4caf50; /* Green background */
-    color: white;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  }
-  
-  /* Logo Section */
-  .navbar div:first-child {
+    position: relative;
+    z-index: 10;
+}
+
+/* Navbar Container */
+.navbar-container {
     display: flex;
     align-items: center;
-    gap: 0.5rem;
-  }
-  
-  .navbar img {
+    justify-content: space-between;
+    width: 100%;
+}
+
+/* Logo Styles */
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo-img {
     width: 40px;
     height: 40px;
     border-radius: 50%;
-  }
-  
-  .navbar span {
+}
+
+.logo-name {
     font-size: 1.5rem;
     font-weight: bold;
-    color: #fff;
-  }
-  
-  /* Navigation Links */
-  .navbar div:nth-child(2) {
+    color: #fbbf24; /* Yellow color for logo text */
+}
+
+/* Navigation Links Styles */
+.nav-links {
     display: flex;
-    gap: 1.5rem;
-  }
-  
-  .navbar a {
-    color: white;
+    gap: 20px;
+    align-items: center;
+}
+
+.nav-links a {
     text-decoration: none;
-    font-size: 1rem;
-    transition: color 0.3s ease;
-  }
-  
-  .navbar a:hover {
-    color: #ffeb3b; /* Yellow on hover */
-  }
-  
-  /* Buttons */
-  button,
-  .navbar a.bg-blue-500 {
-    padding: 0.5rem 1rem;
-    font-size: 1rem;
+    font-size: 1.1rem;
+    color: white;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: #fbbf24; /* Hover effect for links */
+}
+
+/* Auth Button Styles */
+.auth-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Login/Logout Button */
+.auth-button button,
+.auth-button a {
+    padding: 0.5rem 1.5rem;
+    border-radius: 5px;
     font-weight: bold;
-    border-radius: 8px;
-    text-align: center;
-    cursor: pointer;
-    transition: all 0.3s ease;
-  }
-  
-  button {
-    background-color: #f44336; /* Red */
-    border: none;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.auth-button button {
+    background-color: #ef4444; /* Red for logout */
     color: white;
-  }
-  
-  button:hover {
-    background-color: #d32f2f; /* Darker red */
-  }
-  
-  .navbar a.bg-blue-500 {
-    background-color: #2196f3; /* Blue */
+}
+
+.auth-button button:hover {
+    background-color: #dc2626; /* Darker red for hover */
+}
+
+.auth-button a {
+    background-color: #3b82f6; /* Blue for login */
     color: white;
-  }
-  
-  .navbar a.bg-blue-500:hover {
-    background-color: #1976d2; /* Darker blue */
-  }
-  
-  /* Mobile Menu */
-  .md\\:hidden {
+}
+
+.auth-button a:hover {
+    background-color: #2563eb; /* Darker blue for hover */
+}
+
+/* Mobile Menu */
+.md\:hidden {
     display: none;
-  }
-  
-  @media (max-width: 768px) {
-    .navbar div:nth-child(2) {
-      display: none; /* Hide main links */
+}
+
+@media (max-width: 768px) {
+    .navbar-container {
+        flex-direction: column;
+        align-items: flex-start;
     }
-  
-    .md\\:hidden {
-      display: flex; /* Show mobile menu */
-      justify-content: space-around;
-      padding: 1rem;
-      background-color: #4caf50; /* Same as navbar */
-      border-top: 1px solid white;
+
+    .nav-links {
+        flex-direction: column;
+        gap: 15px;
+        width: 100%;
+        display: none; /* Hidden by default */
+        padding-top: 1rem;
     }
-  
-    .md\\:hidden a {
-      font-size: 1rem;
-      color: white;
-      text-decoration: none;
+
+    .nav-links a {
+        padding: 0.5rem 1rem;
+        width: 100%;
+        text-align: left;
     }
-  
-    .md\\:hidden a:hover {
-      color: #ffeb3b; /* Yellow on hover */
+
+    .navbar-container.open .nav-links {
+        display: flex;
     }
-  }
-  
+
+    /* Mobile Menu Button */
+    .mobile-menu-btn {
+        display: block;
+        font-size: 1.5rem;
+        background: none;
+        border: none;
+        color: white;
+        cursor: pointer;
+        margin-left: auto;
+    }
+}
+
+/* Mobile Menu Button Styles */
+.mobile-menu-btn:focus {
+    outline: none;
+}

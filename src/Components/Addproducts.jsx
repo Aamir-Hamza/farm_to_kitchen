@@ -1,5 +1,6 @@
 import { useState } from "react";
 import axios from 'axios';
+import './Addproduct.css'
 
 const Addproducts = () => {
     const [product, setProduct] = useState({ name: "", desc: "", price: "", img: null, category: "" });
