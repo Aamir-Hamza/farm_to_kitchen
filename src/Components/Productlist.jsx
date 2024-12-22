@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-import handleupdate from './/Updateproduct'
-import './Productlist.css'
+import UpdateProduct from './UpdateProduct';
+import './Productlist.css';
 
 const URL = "https://farm-to-kitchen-ab130-default-rtdb.firebaseio.com/products.json";
 
@@ -11,7 +11,6 @@ const Productlist = () => {
     const [searchTerm, setSearchTerm] = useState('');
     const [sortOption, setSortOption] = useState('');
     const [editingProductId, setEditingProductId] = useState(null);
-
 
     async function Getlist() {
         let res = await axios.get(URL);
@@ -29,7 +28,7 @@ const Productlist = () => {
         Getlist();
     }, []);
 
-    // searching
+    // Searching
     const handleSearch = (e) => {
         const term = e.target.value.toLowerCase();
         setSearchTerm(term);
@@ -40,7 +39,7 @@ const Productlist = () => {
         setFilteredData(filtered);
     };
 
-    // sorting
+    // Sorting
     const handleSort = (e) => {
         const option = e.target.value;
         setSortOption(option);
@@ -59,7 +58,7 @@ const Productlist = () => {
         setFilteredData(sorted);
     };
 
-    //filtering 
+    // Filtering
     const handleFilter = (e) => {
         const category = e.target.value;
         if (category === 'all') {
@@ -70,11 +69,15 @@ const Productlist = () => {
         }
     };
 
-    async function handleremove(id){
-        await axios.delete(`https://farm-to-kitchen-ab130-default-rtdb.firebaseio.com/products/${id}.json`)
-        Getlist()
-        alert("Product Removed")
-    }   
+    async function handleremove(id) {
+        await axios.delete(`https://farm-to-kitchen-ab130-default-rtdb.firebaseio.com/products/${id}.json`);
+        Getlist();
+        alert("Product Removed");
+    }
+
+    const handleupdate = (id) => {
+        setEditingProductId(id);
+    };
 
     return (
         <div className='mainpcard'>
@@ -102,7 +105,7 @@ const Productlist = () => {
                     <option value='all'>All Categories</option>
                     <option value='fruits'>Fruits</option>
                     <option value='vegetables'>Vegetables</option>
-                    <option value='Dairy'>Dairy</option>
+                    <option value='dairy'>Dairy</option>
                 </select>
             </div>
 
@@ -117,12 +120,19 @@ const Productlist = () => {
                     </div>
 
                     <div className='upbutton'>
-                     
-                        <button onClick={()=>handleupdate(product.id)}>Update</button>
-                        <button onClick={()=>handleremove(product.id)}>Remove</button>
+                        <button onClick={() => handleupdate(product.id)}>Update</button>
+                        <button onClick={() => handleremove(product.id)}>Remove</button>
                     </div>
                 </div>
             ))}
+
+            {editingProductId && (
+                <UpdateProduct
+                    productId={editingProductId}
+                    onClose={() => setEditingProductId(null)}
+                    refreshList={Getlist}
+                />
+            )}
         </div>
     );
 };

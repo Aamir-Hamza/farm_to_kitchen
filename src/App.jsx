@@ -3,7 +3,9 @@
 import './App.css'
 import { useState } from 'react'
 
+
 import {Routes,Route, Navigate} from "react-router-dom"
+
 import { User_Registration } from './Components/User_Registration'
 import{Navbar} from "./Components/Navbar"
 import {Home} from "./Components/Home"
@@ -26,7 +28,6 @@ import About from './Components/About'
 import Footer from './Components/Footer'
 
 function App() {
-
   const [user, setUser] = useState(null); // Store logged-in user info
   const [registeredUsers, setRegisteredUsers] = useState([]); // Store registered users
 
@@ -69,6 +70,7 @@ function App() {
       <Route path="/about" element={<About />}/>
     </Routes> */}
      {/* <User_Registration/> */}
+
     
 
       <Navbar user={user} handleLogout={handleLogout} />
@@ -82,6 +84,7 @@ function App() {
        </Routes> 
 <Footer/>
 
+   
     </>
   );
 }
