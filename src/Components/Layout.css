@@ -1,0 +1,75 @@
+/* Base Styles */
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+  }
+  
+  /* Background and Layout */
+  .bg-zinc-200 {
+    background-color: #e2e8f0; /* Light gray background */
+  }
+  
+  .min-h-screen {
+    min-height: 100vh; /* Full viewport height */
+  }
+  
+  .flex {
+    display: flex;
+  }
+  
+  .flex-col {
+    flex-direction: column;
+  }
+  
+  /* Header and Main Layout */
+  .w-full {
+    width: 100%;
+  }
+  
+  .max-w-screen-xl {
+    max-width: 1280px; /* XL screen size */
+  }
+  
+  .mx-auto {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .p-5 {
+    padding: 1.25rem; /* 20px padding */
+  }
+  
+  /* Transform and Transition */
+  .transform {
+    transform: translate(0);
+  }
+  
+  .transition-transform {
+    transition: transform 0.5s ease-in-out;
+  }
+  
+  .duration-500 {
+    transition-duration: 0.5s; /* Smooth transition */
+  }
+  
+  .-translate-x-56 {
+    transform: translateX(-14rem); /* Shift 56 (14 x 4px = 56px) units to the left */
+  }
+  
+  /* Mobile Responsiveness */
+  @media (max-width: 768px) {
+    .p-5 {
+      padding: 1rem; /* Reduce padding on smaller screens */
+    }
+  
+    .max-w-screen-xl {
+      max-width: 100%; /* Full width for smaller screens */
+    }
+  
+    .-translate-x-56 {
+      transform: translateX(-10rem); /* Adjust for smaller devices */
+    }
+  }
+  

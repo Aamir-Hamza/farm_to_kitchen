@@ -1,4 +1,4 @@
-
+/* 
 *{
     margin: 0;
     padding: 0;
@@ -24,4 +24,290 @@ a{
 img{
     height: 40px;
     border-radius: 100%;
-}
+} */
+.App {
+    text-align: center;
+    background-color: #f7f7f7; /* Changed to light background for better contrast */
+    min-height: 100vh;
+  }
+  
+  .App-logo {
+    height: 40vmin;
+    pointer-events: none;
+  }
+  
+  @media (prefers-reduced-motion: no-preference) {
+    .App-logo {
+      animation: App-logo-spin infinite 20s linear;
+    }
+  }
+  
+  .App-header {
+    background-color: #282c34;
+    min-height: 60vh; /* Reduced the height of the header */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: white;
+    padding: 2rem 1rem; /* Added padding for a bit of space */
+  }
+  
+  .App-link {
+    color: #61dafb;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  @keyframes App-logo-spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  
+  /* Additional styles for cart page */
+  .cart-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .cart-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  .cart-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem;
+    background-color: #fff;
+    margin-bottom: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .cart-item img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+  
+  .cart-item-info {
+    flex: 1;
+    margin-left: 1rem;
+  }
+  
+  .cart-item-name {
+    font-size: 1.2rem;
+    font-weight: 600;
+  }
+  
+  .cart-item-price {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #888;
+  }
+  
+  .cart-actions {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .cart-actions button {
+    background-color: #61dafb;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .cart-actions button:hover {
+    background-color: #4fa3e2;
+  }
+  
+  .cart-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #282c34;
+    color: white;
+    padding: 1rem;
+    border-radius: 8px;
+  }
+  
+  .cart-footer h3 {
+    font-size: 1.5rem;
+  }
+  
+  .cart-footer .total-price {
+    font-size: 1.5rem;
+    font-weight: 700;
+  }
+  
+  .cart-footer button {
+    padding: 0.8rem 1.5rem;
+    background-color: #ff5722;
+    border: none;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 1.1rem;
+  }
+  .App {
+    text-align: center;
+    background-color: #f7f7f7; /* Changed to light background for better contrast */
+    min-height: 100vh;
+  }
+  
+  .App-logo {
+    height: 40vmin;
+    pointer-events: none;
+  }
+  
+  @media (prefers-reduced-motion: no-preference) {
+    .App-logo {
+      animation: App-logo-spin infinite 20s linear;
+    }
+  }
+  
+  .App-header {
+    background-color: #282c34;
+    min-height: 60vh; /* Reduced the height of the header */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: white;
+    padding: 2rem 1rem; /* Added padding for a bit of space */
+  }
+  
+  .App-link {
+    color: #61dafb;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  @keyframes App-logo-spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  
+  /* Additional styles for cart page */
+  .cart-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .cart-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  .cart-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem;
+    background-color: #fff;
+    margin-bottom: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .cart-item img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+  
+  .cart-item-info {
+    flex: 1;
+    margin-left: 1rem;
+  }
+  
+  .cart-item-name {
+    font-size: 1.2rem;
+    font-weight: 600;
+  }
+  
+  .cart-item-price {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #888;
+  }
+  
+  .cart-actions {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .cart-actions button {
+    background-color: #61dafb;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .cart-actions button:hover {
+    background-color: #4fa3e2;
+  }
+  
+  .cart-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #282c34;
+    color: white;
+    padding: 1rem;
+    border-radius: 8px;
+  }
+  
+  .cart-footer h3 {
+    font-size: 1.5rem;
+  }
+  
+  .cart-footer .total-price {
+    font-size: 1.5rem;
+    font-weight: 700;
+  }
+  
+  .cart-footer button {
+    padding: 0.8rem 1.5rem;
+    background-color: #ff5722;
+    border: none;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 1.1rem;
+  }
+  
+  .cart-footer button:hover {
+    background-color: #e64a19;
+  }
+  
+  .cart-footer button:hover {
+    background-color: #e64a19;
+  }
