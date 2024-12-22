@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+
 // import "../App.css";
 import './Register.css'
 
@@ -7,6 +8,7 @@ export function User_Registration() {
   const [data, setData] = useState({
     name: "",
     role: "farmer", // Default role
+
     farmLocation: "",
     typesOfProduce: "",
     contactNumber: "",
@@ -22,13 +24,16 @@ export function User_Registration() {
     setData({ ...data, [name]: value });
   };
 
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     // Validate passwords match
+
     if (data.password !== data.confirmPassword) {
       setError("Passwords do not match!");
       return;
     }
+
     // Validate role-specific fields for farmers
     if (data.role === "farmer" && (!data.farmLocation || !data.typesOfProduce)) {
       setError("Farm location and types of produce are required for farmers.");
@@ -59,11 +64,14 @@ export function User_Registration() {
       console.error("Error saving user data:", err);
       setError("Failed to register user. Please try again.");
     }
+
   };
 
   return (
     <div className="registration-container">
+
       <h2 className="registration-heading">User Registration</h2>
+
       <form onSubmit={handleSubmit} className="registration-form">
         <input
           type="text"
@@ -74,6 +82,7 @@ export function User_Registration() {
           required
           className="input-field"
         />
+
         <div className="form-group">
           <label htmlFor="role">Select Role</label>
           <select
@@ -112,6 +121,7 @@ export function User_Registration() {
           </>
         )}
 
+
         <input
           type="tel"
           name="contactNumber"
@@ -148,13 +158,15 @@ export function User_Registration() {
           required
           className="input-field"
         />
+
         
         {/* Error message */}
         {error && <p className="error-message">{error}</p>}
 
         {/* Submit Button */}
+
         <button type="submit" className="submit-btn">Register</button>
       </form>
     </div>
   );
-}
+        }

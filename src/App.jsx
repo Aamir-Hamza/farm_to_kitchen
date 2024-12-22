@@ -1,3 +1,4 @@
+
 import './App.css';
 import { Routes, Route } from 'react-router-dom';
 import { User_Registration } from './Components/User_Registration';
@@ -20,6 +21,7 @@ import Detail from './pages/Detail';
 import Addproducts from './Components/Addproducts'
 
 function App() {
+
   return (
     <>
       <Navbar />
@@ -46,3 +48,4 @@ function App() {
 }
 
 export default App;
+

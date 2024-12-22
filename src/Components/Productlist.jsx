@@ -2,6 +2,7 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import UpdateProduct from './UpdateProduct';
 
+
 const URL = "https://farm-to-kitchen-ab130-default-rtdb.firebaseio.com/products.json";
 
 const Productlist = () => {
@@ -11,9 +12,11 @@ const Productlist = () => {
     const [sortOption, setSortOption] = useState('');
     const [editingProductId, setEditingProductId] = useState(null);
 
+
     // Fetch Product List
     const fetchProductList = async () => {
         const res = await axios.get(URL);
+
         if (res.data) {
             const products = Object.keys(res.data).map(key => ({ id: key, ...res.data[key] }));
             setData(products);
@@ -25,7 +28,9 @@ const Productlist = () => {
         fetchProductList();
     }, []);
 
+
     // Handle Search
+
     const handleSearch = (e) => {
         const term = e.target.value.toLowerCase();
         setSearchTerm(term);
@@ -36,7 +41,7 @@ const Productlist = () => {
         setFilteredData(filtered);
     };
 
-    // Handle Sort
+
     const handleSort = (e) => {
         const option = e.target.value;
         setSortOption(option);
@@ -53,12 +58,14 @@ const Productlist = () => {
         setFilteredData(sortedData);
     };
 
+
     // Remove Product
     const handleRemove = async (id) => {
         await axios.delete(`https://farm-to-kitchen-ab130-default-rtdb.firebaseio.com/products/${id}.json`);
         alert('Product Removed');
         fetchProductList();
     };
+
 
     return (
         <div className="p-5">
@@ -82,6 +89,7 @@ const Productlist = () => {
                 </select>
             </div>
 
+
             <div className="product-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                 {filteredData.map(product => (
                     <div key={product.id} className="productcard border border-gray-300 rounded p-4 shadow-md">
@@ -94,15 +102,20 @@ const Productlist = () => {
                             <button onClick={() => setEditingProductId(product.id)} className="bg-blue-500 text-white px-2 py-1 rounded">Update</button>
                             <button onClick={() => handleRemove(product.id)} className="bg-red-500 text-white px-2 py-1 rounded">Remove</button>
                         </div>
+
                     </div>
                 ))}
             </div>
+
+
 
             {editingProductId && (
                 <UpdateProduct
                     productId={editingProductId}
                     onClose={() => setEditingProductId(null)}
+
                     refreshList={fetchProductList}
+
                 />
             )}
         </div>

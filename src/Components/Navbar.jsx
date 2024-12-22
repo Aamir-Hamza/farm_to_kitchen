@@ -1,3 +1,4 @@
+
 import { Link, useNavigate } from 'react-router-dom';
 import './Navbar.css';
 import { useState } from 'react';
@@ -120,3 +121,4 @@ export function Navbar({ user, handleLogout }) {
         </nav>
     );
 }
+

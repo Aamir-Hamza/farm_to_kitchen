@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+
 import './UpdateProduct.css'; // Import the CSS file
+
 
 const UpdateProduct = ({ productId, onClose, refreshList }) => {
     const [product, setProduct] = useState({
@@ -39,6 +41,7 @@ const UpdateProduct = ({ productId, onClose, refreshList }) => {
             <div className="modal-content">
                 <h2>Update Product</h2>
                 <form onSubmit={handleSubmit}>
+
                     <label>Name:</label>
                     <input
                         type="text"
@@ -82,6 +85,7 @@ const UpdateProduct = ({ productId, onClose, refreshList }) => {
                         onChange={handleChange}
                         required
                     />
+
                     <div className="modal-actions">
                         <button type="submit">Update</button>
                         <button type="button" onClick={onClose}>Cancel</button>
