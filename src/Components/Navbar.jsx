@@ -1,5 +1,6 @@
 import "../App.css"
 import { Link } from "react-router-dom"
+import './Navbar.css'
 export function Navbar(){
     return (<>
     <div className="containerNav">
@@ -8,8 +9,8 @@ export function Navbar(){
         <Link to={"/add"}>Add</Link>
         <Link to={"/products"}>Product</Link>
        
-        <input className="inputsearch" type="text" placeholder="Search " />
-        <img src="https://img.icons8.com/?size=100&id=72704&format=png&color=000000" alt="" />
+        
+        
         <Link to={"/login"}>Login</Link>
         <Link to={"/about"}>About Us</Link>
 
