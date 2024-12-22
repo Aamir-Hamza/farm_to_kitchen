@@ -1,43 +1,42 @@
 import React from "react";
+import { useDispatch } from "react-redux";
+import { addToCart } from "../stores/cart"; // Ensure this import is correct
 import { Link } from "react-router-dom";
-import iconCart from "../assets/images/iconCart.png";
-import { useDispatch, useSelector } from "react-redux";
-import { addToCart } from "../stores/cart";
 
-const ProductCart = (props) => {
-  const carts = useSelector((store) => store.cart.items);
-  const { id, name, price, image, slug } = props.data;
+const ProductCart = ({ data }) => {
   const dispatch = useDispatch();
+
   const handleAddToCart = () => {
     dispatch(
       addToCart({
-        productId: id,
+        productId: data.id,
         quantity: 1,
+        name: data.name,
+        price: data.price,
+        image: data.img,
       })
     );
   };
+
   return (
-    <div className="bg-white p-5 rounded-xl shadow-sm">
-      <Link to={slug}>
+    <div className="bg-white p-5 rounded-xl shadow-md hover:shadow-lg transition-all duration-300">
+      <Link to={`/product/${data.id}`}>
         <img
-          src={image}
-          alt=""
-          className="w-full h-80 object-cover object-top drop-shadow-[0_80px_30px_#0007]"
+          src={data.img}
+          alt={data.name}
+          className="w-full h-64 object-cover object-center rounded-lg mb-4"
         />
       </Link>
-      <h3 className="text-2xl py-3 text-center font-medium">{name}</h3>
-      <div className="flex justify-between items-center">
-        <p>
-          💲<span className="text-2xl font-medium">{price}</span>
-        </p>
-        <button
-          className="bg-gray-300 p-2 rounded-md text-sm hover:bg-gray-400 flex gap-2"
-          onClick={handleAddToCart}
-        >
-          <img src={iconCart} alt="" className="w-5" />
-          Add To Cart
-        </button>
-      </div>
+      <h3 className="text-lg font-medium mb-2">{data.name}</h3>
+      {/* <p className="text-gray-600 text-sm mb-3">{data.desc}</p> */}
+      <p className="text-lg font-semibold text-gray-800 mb-4">💲{data.price}</p>
+      
+      <button
+        onClick={handleAddToCart}
+        className="bg-amber-500 text-white py-2 px-4 rounded-lg hover:bg-amber-400 w-full"
+      >
+        Add to Cart
+      </button>
     </div>
   );
 };
