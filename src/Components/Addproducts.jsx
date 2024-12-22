@@ -1,9 +1,9 @@
 import { useState } from "react"
 import axios from 'axios'
-
+import './Addproduct.css'
 
 const Addproducts = ()=>{
-    const [product,setProduct] =useState({name:"",desc:"",price:"",img:null})
+    const [product,setProduct] =useState({name:"",desc:"",price:"",img:null,category:""})
 
     
 
@@ -31,7 +31,7 @@ const Addproducts = ()=>{
         let imageUrl = null;
 
         if (!product.img) {
-            setMessage("Please upload an image.");
+            alert("Please upload an image.");
             return;
           }
 
@@ -70,7 +70,15 @@ const Addproducts = ()=>{
             <label htmlFor="desc">Enter description</label> 
             <input type="text" name="desc" placeholder="Enter description"
             value={product.desc} onChange={handlechange}/>
-            
+
+            <select name="category" value={product.category} onChange={handlechange}>
+                <option value="">Select a Category</option>
+                <option value="fruits">Fruits</option>
+                <option value="vegetables">Vegetables</option>
+                <option value="Dairy">Dairy</option>
+
+            </select>
+            <br/>
             
             <label htmlFor="name">Enter Product Price</label> 
             <input type="number" name="price" placeholder="Enter Product price"
