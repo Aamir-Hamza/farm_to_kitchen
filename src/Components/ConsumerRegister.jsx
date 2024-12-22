@@ -1,8 +1,1 @@
-export function ConsumerRegister(){
-    return(<>
-    
-    
-    
-    
-    </>)
-}
+
