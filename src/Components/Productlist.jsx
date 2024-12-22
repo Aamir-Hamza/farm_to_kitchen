@@ -1,7 +1,6 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-import handleupdate from './/Updateproduct'
-import './Productlist.css'
+import UpdateProduct from './UpdateProduct';
 
 const URL = "https://farm-to-kitchen-ab130-default-rtdb.firebaseio.com/products.json";
 
@@ -12,24 +11,21 @@ const Productlist = () => {
     const [sortOption, setSortOption] = useState('');
     const [editingProductId, setEditingProductId] = useState(null);
 
-
-    async function Getlist() {
-        let res = await axios.get(URL);
-        let arr = [];
+    // Fetch Product List
+    const fetchProductList = async () => {
+        const res = await axios.get(URL);
         if (res.data) {
-            for (let key in res.data) {
-                arr.push({ id: key, ...res.data[key] });
-            }
-            setData(arr);
-            setFilteredData(arr);
+            const products = Object.keys(res.data).map(key => ({ id: key, ...res.data[key] }));
+            setData(products);
+            setFilteredData(products);
         }
-    }
+    };
 
     useEffect(() => {
-        Getlist();
+        fetchProductList();
     }, []);
 
-    // searching
+    // Handle Search
     const handleSearch = (e) => {
         const term = e.target.value.toLowerCase();
         setSearchTerm(term);
@@ -40,89 +36,75 @@ const Productlist = () => {
         setFilteredData(filtered);
     };
 
-    // sorting
+    // Handle Sort
     const handleSort = (e) => {
         const option = e.target.value;
         setSortOption(option);
-        let sorted = [...filteredData];
-
+        let sortedData = [...filteredData];
         if (option === 'priceAsc') {
-            sorted.sort((a, b) => a.price - b.price);
+            sortedData.sort((a, b) => a.price - b.price);
         } else if (option === 'priceDesc') {
-            sorted.sort((a, b) => b.price - a.price);
+            sortedData.sort((a, b) => b.price - a.price);
         } else if (option === 'nameAsc') {
-            sorted.sort((a, b) => a.name.localeCompare(b.name));
+            sortedData.sort((a, b) => a.name.localeCompare(b.name));
         } else if (option === 'nameDesc') {
-            sorted.sort((a, b) => b.name.localeCompare(a.name));
+            sortedData.sort((a, b) => b.name.localeCompare(a.name));
         }
-
-        setFilteredData(sorted);
+        setFilteredData(sortedData);
     };
 
-    //filtering 
-    const handleFilter = (e) => {
-        const category = e.target.value;
-        if (category === 'all') {
-            setFilteredData(data);
-        } else {
-            const filtered = data.filter(product => product.category === category);
-            setFilteredData(filtered);
-        }
+    // Remove Product
+    const handleRemove = async (id) => {
+        await axios.delete(`https://farm-to-kitchen-ab130-default-rtdb.firebaseio.com/products/${id}.json`);
+        alert('Product Removed');
+        fetchProductList();
     };
-
-    async function handleremove(id){
-        await axios.delete(`https://farm-to-kitchen-ab130-default-rtdb.firebaseio.com/products/${id}.json`)
-        Getlist()
-        alert("Product Removed")
-    }   
 
     return (
-        <div className='mainpcard'>
-            <div className='search-bar'>
+        <div className="p-5">
+            <div className="search-bar mb-4">
                 <input
-                    type='text'
-                    placeholder='Search products...'
+                    type="text"
+                    placeholder="Search products..."
                     value={searchTerm}
                     onChange={handleSearch}
+                    className="p-2 border border-gray-300 rounded"
                 />
             </div>
 
-            <div className='sort-options'>
-                <select value={sortOption} onChange={handleSort}>
-                    <option value=''>Sort By</option>
-                    <option value='priceAsc'>Price: Low to High</option>
-                    <option value='priceDesc'>Price: High to Low</option>
-                    <option value='nameAsc'>Name: A to Z</option>
-                    <option value='nameDesc'>Name: Z to A</option>
+            <div className="sort-options mb-4">
+                <select value={sortOption} onChange={handleSort} className="p-2 border border-gray-300 rounded">
+                    <option value="">Sort By</option>
+                    <option value="priceAsc">Price: Low to High</option>
+                    <option value="priceDesc">Price: High to Low</option>
+                    <option value="nameAsc">Name: A to Z</option>
+                    <option value="nameDesc">Name: Z to A</option>
                 </select>
             </div>
 
-            <div className='filter-options'>
-                <select onChange={handleFilter}>
-                    <option value='all'>All Categories</option>
-                    <option value='fruits'>Fruits</option>
-                    <option value='vegetables'>Vegetables</option>
-                    <option value='Dairy'>Dairy</option>
-                </select>
+            <div className="product-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                {filteredData.map(product => (
+                    <div key={product.id} className="productcard border border-gray-300 rounded p-4 shadow-md">
+                        <img src={product.img} alt={product.name} className="w-full h-40 object-cover rounded mb-2" />
+                        <h1 className="text-lg font-bold">{product.name}</h1>
+                        <p>{product.desc}</p>
+                        <p>Category: {product.category}</p>
+                        <p>Price: ₹{product.price}</p>
+                        <div className="flex justify-between mt-2">
+                            <button onClick={() => setEditingProductId(product.id)} className="bg-blue-500 text-white px-2 py-1 rounded">Update</button>
+                            <button onClick={() => handleRemove(product.id)} className="bg-red-500 text-white px-2 py-1 rounded">Remove</button>
+                        </div>
+                    </div>
+                ))}
             </div>
 
-            {filteredData.map((product) => (
-                <div key={product.id} className='productcard'>
-                    <div><img src={product.img} alt={product.name} /></div>
-                    <div className='middesc'>
-                        <h1>{product.name}</h1>
-                        <h3>{product.desc}</h3>
-                        <h3>{product.category}</h3>
-                        <h2>RS: {product.price}</h2>
-                    </div>
-
-                    <div className='upbutton'>
-                     
-                        <button onClick={()=>handleupdate(product.id)}>Update</button>
-                        <button onClick={()=>handleremove(product.id)}>Remove</button>
-                    </div>
-                </div>
-            ))}
+            {editingProductId && (
+                <UpdateProduct
+                    productId={editingProductId}
+                    onClose={() => setEditingProductId(null)}
+                    refreshList={fetchProductList}
+                />
+            )}
         </div>
     );
 };

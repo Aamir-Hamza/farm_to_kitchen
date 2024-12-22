@@ -1,89 +1,60 @@
-
+/* About.css */
 .about-container {
-    font-family: 'Arial', sans-serif;
-    color: #2d3436;
+    font-family: Arial, sans-serif;
+    max-width: 800px;
+    margin: 0 auto;
     padding: 20px;
-    margin: auto;
-    max-width: auto;
-    background: linear-gradient(145deg, #e8f5e9, #ffffff);
-    border-radius: 10px;
-    
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    color: #333;
 }
 
 .about-container h1 {
     text-align: center;
-    color: #388e3c;
+    color: #4CAF50;
+    font-size: 2.5em;
     margin-bottom: 20px;
-    font-size: 2.5rem;
 }
 
-.about-container h2 {
-    color: #2e7d32;
-    margin-top: 20px;
-    font-size: 1.8rem;
-}
 .about-container p {
-    font-size: 1rem;
     line-height: 1.6;
-    margin: 10px 0;
-}
-
-.about-container ul {
-    list-style: none;
-    padding: 0;
-    margin: 15px 0;
-}
-
-.about-container ul li {
-    position: relative;
-    padding-left: 30px;
-    margin-bottom: 10px;
-    font-size: 1rem;
-    color: #2d3436;
-}
-
-.about-container ul li:before {
-    content: '\2713'; 
-    position: absolute;
-    left: 0;
-    top: 0;
-    color: #66bb6a;
-    font-size: 1.2rem;
+    font-size: 1.1em;
+    margin-bottom: 20px;
 }
 
 .about-section {
-    padding: 15px;
-    margin-bottom: 20px;
-    background-color: #f1f8e9;
-    border: 1px solid #c5e1a5;
-    border-radius: 8px;
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
 }
 
-.about-container p:last-child {
-    text-align: center;
+.about-section h2 {
+    font-size: 1.8em;
+    color: #2c3e50;
+    margin-bottom: 10px;
+    border-bottom: 2px solid #4CAF50;
+    padding-bottom: 5px;
+}
+
+.about-section ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.about-section ul li {
+    background: url('data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cpath%20d%3D%22M8%2C0C3.58%2C0%2C0%2C3.58%2C0%2C8%2C0%2C12.42%2C3.58%2C16%2C8%2C16%2C12.42%2C16%2C16%2C12.42%2C16%2C8%2C8%2C16%2C4.18%2C12.62%2C4.18%2C8.03%2C4.18%2C8.00%2C8.00%2C4.18%2C8.00%2C8.00%2C0.0%2C8%2C8.42%22%2F%3E%3C%2Fsvg%3E') no-repeat left center;
+    padding-left: 20px;
+    font-size: 1.1em;
+    margin-bottom: 10px;
+}
+
+.about-section ul li:last-child {
+    margin-bottom: 0;
+}
+
+.about-container p:last-of-type {
+    font-size: 1.2em;
     font-weight: bold;
-    color: #388e3c;
-    margin-top: 20px;
-    font-size: 1.2rem;
-}
-
-
-@media (max-width: 768px) {
-    .about-container {
-        padding: 15px;
-    }
-
-    .about-container h1 {
-        font-size: 2rem;
-    }
-
-    .about-container h2 {
-        font-size: 1.5rem;
-    }
-
-    .about-container p,
-    .about-container ul li {
-        font-size: 0.9rem;
-    }
+    text-align: center;
+    color: #2c3e50;
+    margin-top: 30px;
 }

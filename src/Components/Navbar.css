@@ -1,0 +1,118 @@
+/* Global Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Navbar Container */
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: #4caf50; /* Green background */
+    color: white;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Logo Section */
+  .navbar div:first-child {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  .navbar img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+  }
+  
+  .navbar span {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #fff;
+  }
+  
+  /* Navigation Links */
+  .navbar div:nth-child(2) {
+    display: flex;
+    gap: 1.5rem;
+  }
+  
+  .navbar a {
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+  }
+  
+  .navbar a:hover {
+    color: #ffeb3b; /* Yellow on hover */
+  }
+  
+  /* Buttons */
+  button,
+  .navbar a.bg-blue-500 {
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 8px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  button {
+    background-color: #f44336; /* Red */
+    border: none;
+    color: white;
+  }
+  
+  button:hover {
+    background-color: #d32f2f; /* Darker red */
+  }
+  
+  .navbar a.bg-blue-500 {
+    background-color: #2196f3; /* Blue */
+    color: white;
+  }
+  
+  .navbar a.bg-blue-500:hover {
+    background-color: #1976d2; /* Darker blue */
+  }
+  
+  /* Mobile Menu */
+  .md\\:hidden {
+    display: none;
+  }
+  
+  @media (max-width: 768px) {
+    .navbar div:nth-child(2) {
+      display: none; /* Hide main links */
+    }
+  
+    .md\\:hidden {
+      display: flex; /* Show mobile menu */
+      justify-content: space-around;
+      padding: 1rem;
+      background-color: #4caf50; /* Same as navbar */
+      border-top: 1px solid white;
+    }
+  
+    .md\\:hidden a {
+      font-size: 1rem;
+      color: white;
+      text-decoration: none;
+    }
+  
+    .md\\:hidden a:hover {
+      color: #ffeb3b; /* Yellow on hover */
+    }
+  }
+  

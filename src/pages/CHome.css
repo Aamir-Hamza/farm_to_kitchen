@@ -1,0 +1,97 @@
+/* General Styles */
+.min-h-screen {
+    min-height: 100vh;
+  }
+  
+  .bg-gray-50 {
+    background-color: #f9fafb;
+  }
+  
+  .text-center {
+    text-align: center;
+  }
+  
+  /* Header */
+  .welcome-header {
+    padding: 2.5rem 0;
+    background-color: #c6f6d5;
+  }
+  
+  .welcome-header h1 {
+    font-size: 2.25rem;
+    font-weight: 700;
+    color: #2f855a;
+  }
+  
+  .welcome-header p {
+    margin-top: 1rem;
+    color: #4a5568;
+  }
+  
+  /* Search, Sort, Filter */
+  .controls-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2rem;
+  }
+  
+  .controls-container select,
+  .controls-container input {
+    padding: 0.75rem;
+    border: 1px solid #e2e8f0;
+    border-radius: 0.5rem;
+    width: 100%;
+  }
+  
+  .controls-container select,
+  .controls-container input {
+    max-width: 20rem;
+  }
+  
+  .controls-container input {
+    width: 100%;
+  }
+  
+  .controls-container select {
+    width: 100%;
+  }
+  
+  @media (min-width: 768px) {
+    .controls-container {
+      flex-direction: row;
+    }
+    .controls-container select,
+    .controls-container input {
+      width: 20rem;
+    }
+  }
+  
+  /* Product Grid */
+  .product-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+    margin-top: 2rem;
+  }
+  
+  @media (max-width: 1024px) {
+    .product-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  
+  @media (max-width: 640px) {
+    .product-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  .product-grid p {
+    text-align: center;
+    color: #a0aec0;
+    grid-column: span 4;
+  }
+  
