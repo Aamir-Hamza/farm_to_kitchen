@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import "../App.css";
+import "./login.css";
 
 export function Login({ onLogin }) {
   const [formData, setFormData] = useState({ email: "", password: "" });
@@ -23,11 +23,13 @@ export function Login({ onLogin }) {
   };
 
   return (
-    <div className="login-container">
-      <h2 className="login-heading">Log In</h2>
+    <div className="login-wrapper">
+      <h2 className="login-title">Log In</h2>
       <form onSubmit={handleSubmit} className="login-form">
         <div className="form-group">
-          <label htmlFor="email">Email Address</label>
+          <label htmlFor="email" className="form-label">
+            Email Address
+          </label>
           <input
             type="email"
             name="email"
@@ -35,11 +37,13 @@ export function Login({ onLogin }) {
             onChange={handleChange}
             placeholder="Enter your email"
             required
-            className="login-input"
+            className="form-input"
           />
         </div>
         <div className="form-group">
-          <label htmlFor="password">Password</label>
+          <label htmlFor="password" className="form-label">
+            Password
+          </label>
           <input
             type="password"
             name="password"
@@ -47,14 +51,16 @@ export function Login({ onLogin }) {
             onChange={handleChange}
             placeholder="Enter your password"
             required
-            className="login-input"
+            className="form-input"
           />
         </div>
-        {error && <p className="error">{error}</p>}
-        <button type="submit" className="login-submit-btn">
+        {error && <p className="form-error">{error}</p>}
+        <button type="submit" className="login-button">
           Log In
         </button>
-        Already hava an account? <Link to={"/register"}>Regsiter</Link>
+        <p className="form-footer">
+          Don't have an account? <Link to={"/register"} className="form-link">Register</Link>
+        </p>
       </form>
     </div>
   );
